@@ -153,7 +153,3 @@ FROM dept_info
 GROUP BY dept_info.dept_name
 ORDER BY COUNT(dept_info.emp_no) DESC;
 
--- Total Employees in PH 
-SELECT DISTINCT employees.emp_no
-COUNT (employees.emp_no)
-FROM employees;
