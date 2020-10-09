@@ -76,3 +76,25 @@ FROM mentorship_eligibility me
 	ON (de.dept_no = d.dept_no)
 	GROUP BY d.dept_name
 	ORDER BY COUNT(me.emp_no) ASC;
+
+-- grouping by title for mentorship eligibility
+SELECT COUNT(me.emp_no) AS mentorship_elibility_count, me.title
+	INTO mentorship_by_dept
+	FROM mentorship_eligibility AS me
+	GROUP BY me.title
+	ORDER BY COUNT(me.emp_no) DESC;
+
+-- grouping by title for retirement employees
+SELECT COUNT(ut.emp_no), ut.title
+	INTO retiring_titles_count
+	FROM unique_titles AS ut
+	GROUP BY ut.title
+	ORDER BY COUNT(ut.emp_no) DESC;
+
+-- portraying both tables for comparison
+SELECT m.mentorship_elibility_count, m.title, rc.count AS retiring_employee_count
+	INTO cross_training
+	FROM mentorship_by_dept AS m
+	LEFT JOIN retiring_titles_count AS rc 
+	ON (m.title = rc.title)
+	ORDER BY rc.count DESC;
