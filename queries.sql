@@ -125,7 +125,7 @@ SELECT ce.emp_no,
 		ce.first_name,
 		ce.last_name,
 		d.dept_name
---INTO dept_info
+INTO dept_info
 FROM current_emp AS ce
 	INNER JOIN dept_employees AS de
 		ON (ce.emp_no = de.emp_no)
@@ -146,3 +146,14 @@ INNER JOIN dept_employees AS de
 INNER JOIN departments as d
 	ON (de.dept_no = d.dept_no)
 WHERE d.dept_name IN ('Sales', 'Development');
+
+-- deparment info count
+SELECT COUNT(dept_info.emp_no), dept_info.dept_name
+FROM dept_info
+GROUP BY dept_info.dept_name
+ORDER BY COUNT(dept_info.emp_no) DESC;
+
+-- Total Employees in PH 
+SELECT DISTINCT employees.emp_no
+COUNT (employees.emp_no)
+FROM employees;
