@@ -13,7 +13,7 @@
 - VS Code v1.50.0 
 - PgAdmin4 v 4.26
 - PostgreSQL v12.4
-- ![Http_ERD](https://www.quickdatabasediagrams.com) (ERD)
+- [Http_ERD](https://www.quickdatabasediagrams.com/) (ERD)
 
 ## Results
 #### Outcome from the analysis:
